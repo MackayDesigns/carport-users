@@ -8,4 +8,11 @@ cache:
 before_script:
   - npm install -g gulp
 script: gulp test
-after_success: gulp deploy
+after_success: gulp dist
+
+deploy:
+  skip_cleanup: true
+  provider: lambda
+  function_name: carport-users
+  role: arn:aws:iam::710331364289:role/api_lambda_dynamo
+  zip_file: dist.zip

@@ -37,8 +37,16 @@ gulp.task('zip', () => {
     .pipe(gulp.dest('./'));
 });
 
+
 gulp.task('upload', (callback) => {
   awsLambda.deploy('./dist.zip', require("./lambda-config.js"), callback);
+});
+
+gulp.task('dist', (callback) => {
+  return runSequence(
+    ['clean'], ['copy', 'npm-install'], ['zip'], 
+    callback
+  );
 });
 
 gulp.task('deploy', (callback) => {
