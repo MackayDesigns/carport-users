@@ -1,0 +1,34 @@
+{
+  "name": "users",
+  "version": "1.0.0",
+  "description": "Carport users API",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "deploy": "gulp deploy"
+  },
+  "author": "Jeff Mackay",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.3.5",
+    "joi": "^8.0.5",
+    "lambda-time": "^0.4.2",
+    "lodash": "^4.11.1",
+    "scrypt-for-humans": "^2.0.5",
+    "uuid": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffm13/lambda-time.git"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.3.4",
+    "del": "^2.2.0",
+    "dynamodb-doc": "^1.0.0",
+    "gulp": "^3.9.1",
+    "gulp-install": "^0.6.0",
+    "gulp-zip": "^3.2.0",
+    "node-aws-lambda": "^0.1.8",
+    "run-sequence": "^1.1.5"
+  }
+}
