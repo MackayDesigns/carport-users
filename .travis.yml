@@ -1,18 +1,21 @@
 language: node_js
 node_js:
-  - 4.3.2
+- 4.3.2
 sudo: required
 dist: trusty
 cache:
   directories: node_modules
 before_script:
-  - npm install -g gulp
+- npm install -g gulp
 script: gulp test
 after_success: gulp dist
-
 deploy:
-  skip_cleanup: true
   provider: lambda
+  access_key_id:
+    secure: sdgENzofZJnGMErEZZS2F6N7H4J/lv4MIkedmfTdI9XxzRIyVBuJT5qTil1zj6AdeuvsF+BMYu26tw+2B0PK7rCktOwRzW52M2tRCcFxtvT+egap8luqSr7xaiZifZ1I4YsLpOlOuBfR5SJjfHBWB9ulAXMEsZQtY6TQzSdQ3+/5KYNQ2gwkPhk69kczG6EYSPVY46ErC8SnlT4/rsKT/y096LVeNLVIf1hBcDP5CFgqEo0OQKBaXBPjencrXu95AVBuR4t5uPrAqktGUnmsu7NO2tJU/ugHDJkU/dx+yqaIqiIBOen6kR4DCTBrS9CyYT21K2lP78mhcHrsGMbDKy77lsR6TUm/ZqtlHiaoXIRIVJLSxVAVg61Ox/yji5+07VaE57o0cKFqffhxUHN0dKlOK7C96yK60vLBn4K80+SArdUx52uHTFzzjcKuG0upmtJ6+El7ChfiCxpl7o1s6rF/bWcabyOhk/gPZBeLowhzG/vp8DHGckRZSWmpjKrnq95tQIKNQsTwJeabn2o+um3U+WMKdt8fdcpQ38LHgNlXI6Ud8eNwVJM3Kk+Z4OMG+QYxcBWJgcKw56geJE5c8pbJaKf2KGLW6yFTwxpW4t4xXm4gZtkfXsYw95CjA+RRcE/riEfWcFWBJSABWuNRnm4lQQzfeM8jasNweFYxjYg=
+  secret_access_key:
+    secure: EFfj97nXoULeKO4tpW15l27HGHoOxzwuHpfeHwA9xch3i344qcakizRzPH4Dy7U9LUxAjYIKxJjp8claOgtNW374R2ADfCkAimijwQC/eEvV5PbQnkUGwG4VwYceBSAQ65wiiFw3MQzp05aaLHsxSWUGkcxhOIjtBYi2IYDhMj7vEanJABg2vPbWiS9dVB45GvI145Thr3Ik77ru/XsVFS/l74Zrg1ZzGUquZUEhh2yBhqDaA+fnFhc8V6mh32E87o+tnaCVZ6FOPtoB1COGmgZPvNBPdkOK4Lo5gORa0ryXOfNyTkqqClDHTfgH/oiZ+KvdA63uco1e+rWdkFzbZhe9R9cFwkrJH1mEWEtE1/5+K5d9J+5cte+3qXlEg2mi64YAO4N6BQhCnzQB5XGXR2lapbwnueImmGijOuu2+l4P/0e8lqvbreglc4qDREw0nAxBUZFP0kmyIJV4K9IU9KwNZBqnQGaNhMJFOvDbThXw+E0nnN/05KE5LmJMHH4UG6a5GSjQQjblpA8I7gQMQ2ZSrwrrwgiYfpn5ykjbdqSUfQwySn/VR0QcR7gn/bfLuLEOgJpV+CYkMXDr7JvtfUZyE4dT5Xhe4UMZs79rDLBBSXcprNx9Kme1+7bXjOg75uhop+N74HkCvFW3uADgigKAKwz/wDaQZrK7c6VMbS4=
+  skip_cleanup: true
   function_name: carport-users
   role: arn:aws:iam::710331364289:role/api_lambda_dynamo
   zip_file: dist.zip
