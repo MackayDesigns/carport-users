@@ -18,6 +18,6 @@ deploy:
   skip_cleanup: true
   function_name: carport-users
   handler_name: handler
-  runtime: node4.3
+  runtime: nodejs4.3
   role: arn:aws:iam::710331364289:role/api_lambda_dynamo
   zip_file: dist.zip
